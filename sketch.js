@@ -12,11 +12,9 @@ function setup(){
     //create 2 different surfaces
     fixedRect = createSprite(500,500,60,40);
     fixedRect.shapeColor = "cyan";
-    fixedRect.debug = true;
     movingRect = createSprite(500,100,30,60);
     movingRect.shapeColor = "crimson";
     movingRect.velocityY = 4;
-    movingRect.debug = true;
     //create box sprite and give velocity
     body1 = createSprite(200,300,60,40);
     body1.shapeColor = "purple";
@@ -45,9 +43,19 @@ function draw() {
         movingRect.shapeColor = "green";
         fixedRect.shapeColor = "green";
     }
+    if(touching(body1,movingRect)){
+        body1.shapeColor = "green";
+        movingRect.shapeColor = "green";
+    }
+    if(touching(body2,movingRect)){
+       body2.shapeColor = "green";
+       movingRect.shapeColor = "green";
+    }
     else{
         movingRect.shapeColor = "crimson";
         fixedRect.shapeColor = "cyan";
+        body1.shapeColor = "purple";
+        body2.shapeColor = "yellow";
     }
 
     // if(fixedRect.x-movingRect.x < fixedRect.width/2 + movingRect.width/2 &&
